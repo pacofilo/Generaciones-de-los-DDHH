@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Las 5 Generaciones de Derechos Humanos</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gen1: #1a3a5c;
+    --gen1-light: #e8f0f8;
+    --gen1-accent: #3b7dd8;
+    --gen2: #5c1a2a;
+    --gen2-light: #f8e8ec;
+    --gen2-accent: #c73e5c;
+    --gen3: #1a5c3a;
+    --gen3-light: #e8f8f0;
+    --gen3-accent: #2dab6f;
+    --gen4: #3a1a5c;
+    --gen4-light: #f0e8f8;
+    --gen4-accent: #7b3dd8;
+    --gen5: #5c4a1a;
+    --gen5-light: #f8f3e8;
+    --gen5-accent: #c9982e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: #f5f3f0;
+    color: #2a2a2a;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+  }
+
+  header::after {
+    content: '';
+    display: block;
+    width: 120px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gen1-accent), var(--gen2-accent), var(--gen3-accent), var(--gen4-accent), var(--gen5-accent));
+    margin: 1.2rem auto 0;
+    border-radius: 2px;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: #1a1a1a;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+  }
+
+  h1 span {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 300;
+    font-size: 0.42em;
+    color: #777;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+  }
+
+  /* ── Generation Cards ── */
+  .gen-card {
+    background: #fff;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: box-shadow 0.3s;
+  }
+  .gen-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.1); }
+
+  .gen-header {
+    display: flex;
+    align-items: stretch;
+    min-height: 90px;
+  }
+
+  .gen-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 90px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 2.4rem;
+    color: #fff;
+    letter-spacing: -1px;
+    position: relative;
+  }
+
+  .gen-number sup {
+    font-size: 0.4em;
+    position: relative;
+    top: -0.9em;
+  }
+
+  .gen-title-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem 1.5rem;
+    flex: 1;
+  }
+
+  .gen-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1.2;
+  }
+
+  .gen-subtitle {
+    font-weight: 300;
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  .gen-keyword {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+
+  /* colors per generation */
+  .gen1 .gen-number { background: var(--gen1); }
+  .gen1 .gen-header { border-left: 5px solid var(--gen1-accent); }
+  .gen1 .gen-title { color: var(--gen1); }
+  .gen1 .gen-keyword { color: var(--gen1-accent); }
+  .gen1 .gen-body { background: var(--gen1-light); }
+
+  .gen2 .gen-number { background: var(--gen2); }
+  .gen2 .gen-header { border-left: 5px solid var(--gen2-accent); }
+  .gen2 .gen-title { color: var(--gen2); }
+  .gen2 .gen-keyword { color: var(--gen2-accent); }
+  .gen2 .gen-body { background: var(--gen2-light); }
+
+  .gen3 .gen-number { background: var(--gen3); }
+  .gen3 .gen-header { border-left: 5px solid var(--gen3-accent); }
+  .gen3 .gen-title { color: var(--gen3); }
+  .gen3 .gen-keyword { color: var(--gen3-accent); }
+  .gen3 .gen-body { background: var(--gen3-light); }
+
+  .gen4 .gen-number { background: var(--gen4); }
+  .gen4 .gen-header { border-left: 5px solid var(--gen4-accent); }
+  .gen4 .gen-title { color: var(--gen4); }
+  .gen4 .gen-keyword { color: var(--gen4-accent); }
+  .gen4 .gen-body { background: var(--gen4-light); }
+
+  .gen5 .gen-number { background: var(--gen5); }
+  .gen5 .gen-header { border-left: 5px solid var(--gen5-accent); }
+  .gen5 .gen-title { color: var(--gen5); }
+  .gen5 .gen-keyword { color: var(--gen5-accent); }
+  .gen5 .gen-body { background: var(--gen5-light); }
+
+  /* Body / rights list */
+  .gen-body {
+    padding: 1.2rem 1.5rem 1.4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 2rem;
+  }
+
+  .gen-body .context {
+    grid-column: 1 / -1;
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: #555;
+    margin-bottom: 0.6rem;
+    line-height: 1.55;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    padding-bottom: 0.8rem;
+  }
+
+  .gen-body .context strong {
+    font-weight: 600;
+    color: #333;
+  }
+
+  .right-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    padding: 0.3rem 0;
+  }
+
+  .right-item .bullet {
+    flex-shrink: 0;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    margin-top: 0.35rem;
+  }
+
+  .gen1 .bullet { background: var(--gen1-accent); }
+  .gen2 .bullet { background: var(--gen2-accent); }
+  .gen3 .bullet { background: var(--gen3-accent); }
+  .gen4 .bullet { background: var(--gen4-accent); }
+  .gen5 .bullet { background: var(--gen5-accent); }
+
+  .docs {
+    grid-column: 1 / -1;
+    font-size: 0.78rem;
+    color: #999;
+    margin-top: 0.5rem;
+    padding-top: 0.6rem;
+    border-top: 1px dashed rgba(0,0,0,0.1);
+  }
+
+  .docs strong { color: #777; font-weight: 600; }
+
+  footer {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.75rem;
+    color: #aaa;
+    font-weight: 300;
+  }
+
+  @media (max-width: 700px) {
+    .gen-body { grid-template-columns: 1fr; gap: 0.3rem; }
+    .gen-keyword { display: none; }
+    .gen-number { min-width: 60px; font-size: 1.8rem; }
+    .gen-title { font-size: 1.05rem; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>Las Cinco Generaciones de Derechos Humanos
+    <span>Evolución histórica y catálogo ampliado</span>
+  </h1>
+</header>
+
+<!-- ═══════════ 1ª GENERACIÓN ═══════════ -->
+<div class="gen-card gen1">
+  <div class="gen-header">
+    <div class="gen-number">1<sup>ª</sup></div>
+    <div class="gen-title-block">
+      <div class="gen-title">Derechos Civiles y Políticos</div>
+      <div class="gen-subtitle">Siglos XVIII – XIX</div>
+    </div>
+    <div class="gen-keyword">Libertad</div>
+  </div>
+  <div class="gen-body">
+    <div class="context">
+      Surgen de las revoluciones liberales (americana y francesa) como reacción al absolutismo.
+      Son derechos de <strong>primera persona</strong>: protegen al individuo frente al poder del Estado.
+    </div>
+    <div class="right-item"><span class="bullet"></span> Derecho a la vida</div>
+    <div class="right-item"><span class="bullet"></span> Libertad de expresión y de prensa</div>
+    <div class="right-item"><span class="bullet"></span> Libertad religiosa y de conciencia</div>
+    <div class="right-item"><span class="bullet"></span> Libertad de reunión y asociación</div>
+    <div class="right-item"><span class="bullet"></span> Derecho al sufragio (voto)</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a la propiedad privada</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a un juicio justo y al debido proceso</div>
+    <div class="right-item"><span class="bullet"></span> Presunción de inocencia</div>
+    <div class="right-item"><span class="bullet"></span> Prohibición de la tortura y tratos degradantes</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a la intimidad e inviolabilidad del domicilio</div>
+    <div class="right-item"><span class="bullet"></span> Libertad de circulación y residencia</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a la nacionalidad</div>
+    <div class="right-item"><span class="bullet"></span> Derecho de asilo</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a participar en el gobierno del propio país</div>
+    <div class="right-item"><span class="bullet"></span> Igualdad ante la ley y no discriminación</div>
+    <div class="right-item"><span class="bullet"></span> Prohibición de la esclavitud y la servidumbre</div>
+    <div class="docs"><strong>Documentos clave:</strong> Declaración de Independencia de EE.UU. (1776) · Declaración de los Derechos del Hombre y del Ciudadano (1789) · Pacto Internacional de Derechos Civiles y Políticos (1966)</div>
+  </div>
+</div>
+
+<!-- ═══════════ 2ª GENERACIÓN ═══════════ -->
+<div class="gen-card gen2">
+  <div class="gen-header">
+    <div class="gen-number">2<sup>ª</sup></div>
+    <div class="gen-title-block">
+      <div class="gen-title">Derechos Económicos, Sociales y Culturales</div>
+      <div class="gen-subtitle">Finales del s. XIX – s. XX</div>
+    </div>
+    <div class="gen-keyword">Igualdad</div>
+  </div>
+  <div class="gen-body">
+    <div class="context">
+      Nacen del movimiento obrero y las luchas sociales. Son derechos <strong>prestacionales</strong>:
+      exigen al Estado una intervención activa para garantizar condiciones dignas de vida.
+    </div>
+    <div class="right-item"><span class="bullet"></span> Derecho al trabajo y a condiciones laborales justas</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a un salario digno e igual por igual trabajo</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a la seguridad social</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a la educación gratuita y obligatoria</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a la salud y a la asistencia sanitaria</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a una vivienda digna</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a la alimentación adecuada</div>
+    <div class="right-item"><span class="bullet"></span> Derecho al descanso y al tiempo libre</div>
+    <div class="right-item"><span class="bullet"></span> Libertad sindical y derecho de huelga</div>
+    <div class="right-item"><span class="bullet"></span> Protección de la maternidad y la infancia</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a la cultura y a participar en la vida cultural</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a la protección de la familia</div>
+    <div class="right-item"><span class="bullet"></span> Derecho al agua potable y al saneamiento</div>
+    <div class="right-item"><span class="bullet"></span> Protección frente al desempleo</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a la propiedad intelectual y a beneficiarse del progreso científico</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a un nivel de vida adecuado</div>
+    <div class="docs"><strong>Documentos clave:</strong> Constitución de Weimar (1919) · Constitución mexicana (1917) · DUDH, arts. 22-27 (1948) · Pacto Internacional de Derechos Económicos, Sociales y Culturales (1966)</div>
+  </div>
+</div>
+
+<!-- ═══════════ 3ª GENERACIÓN ═══════════ -->
+<div class="gen-card gen3">
+  <div class="gen-header">
+    <div class="gen-number">3<sup>ª</sup></div>
+    <div class="gen-title-block">
+      <div class="gen-title">Derechos de los Pueblos</div>
+      <div class="gen-subtitle">Finales del s. XX – s. XXI</div>
+    </div>
+    <div class="gen-keyword">Solidaridad</div>
+  </div>
+  <div class="gen-body">
+    <div class="context">
+      Responden a los desafíos de la globalización y la interdependencia entre naciones.
+      Son derechos <strong>colectivos</strong>: su titular no es solo el individuo, sino los pueblos y la humanidad en su conjunto.
+    </div>
+    <div class="right-item"><span class="bullet"></span> Derecho a la paz</div>
+    <div class="right-item"><span class="bullet"></span> Derecho al desarrollo humano sostenible</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a un medio ambiente sano y limpio</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a la autodeterminación de los pueblos</div>
+    <div class="right-item"><span class="bullet"></span> Derecho al patrimonio común de la humanidad</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a la asistencia humanitaria</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a la justicia internacional</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a la coexistencia pacífica entre pueblos</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a la cooperación internacional</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a la protección frente al cambio climático</div>
+    <div class="right-item"><span class="bullet"></span> Derecho de los pueblos indígenas a su territorio y cultura</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a la soberanía sobre los recursos naturales</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a la biodiversidad y protección de ecosistemas</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a un orden internacional justo y equitativo</div>
+    <div class="docs"><strong>Documentos clave:</strong> Carta Africana de Derechos Humanos y de los Pueblos (1981) · Declaración sobre el Derecho al Desarrollo (1986) · Acuerdo de París sobre cambio climático (2015) · Declaración de la ONU sobre Derechos de los Pueblos Indígenas (2007)</div>
+  </div>
+</div>
+
+<!-- ═══════════ 4ª GENERACIÓN ═══════════ -->
+<div class="gen-card gen4">
+  <div class="gen-header">
+    <div class="gen-number">4<sup>ª</sup></div>
+    <div class="gen-title-block">
+      <div class="gen-title">Derechos de la Era Digital y Biotecnológica</div>
+      <div class="gen-subtitle">Principios del s. XXI</div>
+    </div>
+    <div class="gen-keyword">Era digital</div>
+  </div>
+  <div class="gen-body">
+    <div class="context">
+      Surgen como respuesta a la revolución tecnológica. La vida digital genera nuevas formas
+      de <strong>vulnerabilidad</strong> que las generaciones anteriores no podían prever: vigilancia masiva,
+      algoritmos opacos, manipulación genética.
+    </div>
+    <div class="right-item"><span class="bullet"></span> Derecho de acceso a Internet y a las TIC</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a la privacidad digital y protección de datos</div>
+    <div class="right-item"><span class="bullet"></span> Derecho al olvido digital</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a la identidad digital</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a la neutralidad de la red</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a la alfabetización digital</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a no ser discriminado por decisiones algorítmicas</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a la transparencia de los algoritmos (explicabilidad de la IA)</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a la desconexión digital (especialmente laboral)</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a la integridad del genoma humano</div>
+    <div class="right-item"><span class="bullet"></span> Protección frente a la manipulación genética no consentida</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a la ciberseguridad personal</div>
+    <div class="right-item"><span class="bullet"></span> Libertad de expresión en el entorno digital</div>
+    <div class="right-item"><span class="bullet"></span> Protección frente a la desinformación y las deepfakes</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a la portabilidad de los datos personales</div>
+    <div class="right-item"><span class="bullet"></span> Regulación ética de la edición genética (CRISPR)</div>
+    <div class="docs"><strong>Documentos clave:</strong> Reglamento General de Protección de Datos – RGPD (2016/18) · Ley de Inteligencia Artificial de la UE – AI Act (2024) · Declaración Universal sobre el Genoma Humano (UNESCO, 1997) · Carta de Derechos Digitales de España (2021)</div>
+  </div>
+</div>
+
+<!-- ═══════════ 5ª GENERACIÓN ═══════════ -->
+<div class="gen-card gen5">
+  <div class="gen-header">
+    <div class="gen-number">5<sup>ª</sup></div>
+    <div class="gen-title-block">
+      <div class="gen-title">Derechos de la Autonomía Radical</div>
+      <div class="gen-subtitle">En debate – s. XXI</div>
+    </div>
+    <div class="gen-keyword">Autonomía</div>
+  </div>
+  <div class="gen-body">
+    <div class="context">
+      Categoría en construcción y muy discutida. Su eje es la <strong>redefinición radical de la dignidad</strong>,
+      ampliando la autonomía del individuo a ámbitos antes considerados indisponibles y extendiendo
+      derechos más allá de lo estrictamente humano.
+    </div>
+    <div class="right-item"><span class="bullet"></span> Derecho a la eutanasia y al suicidio asistido</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a los cuidados paliativos universales</div>
+    <div class="right-item"><span class="bullet"></span> Rechazo del encarnizamiento terapéutico</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a decidir sobre el propio cuerpo (autonomía corporal plena)</div>
+    <div class="right-item"><span class="bullet"></span> Derechos de los animales (protección frente al sufrimiento)</div>
+    <div class="right-item"><span class="bullet"></span> Derechos de la naturaleza como sujeto jurídico</div>
+    <div class="right-item"><span class="bullet"></span> Derecho al uso terapéutico/espiritual de sustancias psicoactivas</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a la identidad de género autopercibida</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a la muerte digna y a la planificación anticipada</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a la libertad morfológica (modificación corporal elegida)</div>
+    <div class="right-item"><span class="bullet"></span> Derechos de las futuras generaciones</div>
+    <div class="right-item"><span class="bullet"></span> Derechos vinculados a la conciencia y la neurolibertad</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a la mejora cognitiva y biomejora voluntaria</div>
+    <div class="right-item"><span class="bullet"></span> Derecho a la privacidad mental (neurodatos)</div>
+    <div class="docs"><strong>Documentos clave:</strong> Constitución de Ecuador (2008, derechos de la naturaleza) · Ley de Eutanasia de España (2021) · Declaración de Derechos de las Generaciones Futuras (UNESCO, 1997) · Debate abierto, sin codificación internacional consolidada</div>
+  </div>
+</div>
+
+<footer>
+  Tabla elaborada con fines didácticos · Filosofía · IES Alquipir
+</footer>
+
+</div>
+</body>
+</html>
